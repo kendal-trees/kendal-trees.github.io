@@ -111,7 +111,6 @@
         loadCSV()
 
         function loadCSV() {
-          //url = 'data/kendal-trees.csv'
           url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7Bq8vB0ZczZ2h3maknAbJQ9dtEa1IEwKA6vl7wLmzmMlA8fdSe6aT6jUJaJXYDQXYIYXLliifnFMU/pub?gid=1395519646&single=true&output=csv'
           fetch(url)
             .then((response) => {
@@ -134,19 +133,6 @@
                         offset: L.point(0, -8),
                         opacity: 1.0
                       })
-                      // highlight point on hover
-                      //.on('click', function () {
-                      //  this.openPopup()
-                      //  this.setStyle({
-                      //      color: '#ff0'
-                      //  })
-                      //})
-                      //.on('mouseout', function () {
-                      //  this.closePopup()
-                      //  this.setStyle({
-                      //      color: '#000'
-                      //  })
-                      //})
                     let pointlabel = '<div class="tooltip">' + feature.properties['tree_id'] + '</div>'
                     layer.bindTooltip(pointlabel, {
                       permanent: true,
@@ -183,9 +169,9 @@
         }
 
         map.on('click', function(e) {
-          // limit coordinate precision to 5 digits
-          let x = e.latlng.lng.toString().replace(/(\.\d{5})(\d+)/, "$1")
-          let y = e.latlng.lat.toString().replace(/(\.\d{5})(\d+)/, "$1")
+          // limit coordinate precision to 7 digits
+          let x = e.latlng.lng.toString().replace(/(\.\d{7})(\d+)/, "$1")
+          let y = e.latlng.lat.toString().replace(/(\.\d{7})(\d+)/, "$1")
           // join with a tab character, so that it will paste into two adjacent cells
           navigator.clipboard.writeText(x + '\t' + y)
         })
