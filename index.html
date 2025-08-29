@@ -111,7 +111,7 @@
 
         function loadCSV() {
           //url = 'data/kendal-trees.csv'
-          url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7Bq8vB0ZczZ2h3maknAbJQ9dtEa1IEwKA6vl7wLmzmMlA8fdSe6aT6jUJaJXYDQXYIYXLliifnFMU/pub?output=csv'
+          url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7Bq8vB0ZczZ2h3maknAbJQ9dtEa1IEwKA6vl7wLmzmMlA8fdSe6aT6jUJaJXYDQXYIYXLliifnFMU/pub?gid=0&single=true&output=csv'
           fetch(url)
             .then((response) => {
               if (response.ok) response.text().then((csvtext) => {
